@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;" />
+  <title>VidSubKh</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- Custom titlebar -->
+  <div class="titlebar" id="titlebar">
+    <div class="titlebar-logo">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <polygon points="7,5 14,9 7,13" fill="#1a6ef5"/>
+        <rect x="2" y="5" width="3" height="8" rx="1" fill="#1a6ef5" opacity=".6"/>
+      </svg>
+      <span>VidSubKh</span>
+    </div>
+    <div class="titlebar-controls">
+      <button class="tb-btn" onclick="window.api.minimize()" title="Minimize">─</button>
+      <button class="tb-btn" onclick="window.api.maximize()" title="Maximize">□</button>
+      <button class="tb-btn tb-close" onclick="window.api.close()" title="Close">✕</button>
+    </div>
+  </div>
+
+  <!-- Sidebar nav -->
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="nav-section">
+        <button class="nav-btn active" data-tab="downloader">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2v8M4 7l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="2" y="12" width="12" height="2" rx="1" fill="currentColor" opacity=".4"/>
+          </svg>
+          <span>Downloader</span>
+        </button>
+        <button class="nav-btn" data-tab="translator">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M2 8h12M8 2c-2 2-2 4-2 6s0 4 2 6M8 2c2 2 2 4 2 6s0 4-2 6" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          <span>AI Translator</span>
+        </button>
+        <button class="nav-btn" data-tab="settings">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.41 1.41M11.54 11.54l1.41 1.41M3.05 12.95l1.41-1.41M11.54 4.46l1.41-1.41" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+          <span>Settings</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="content">
+      <div id="tab-downloader" class="tab-panel active"></div>
+      <div id="tab-translator" class="tab-panel"></div>
+      <div id="tab-settings"   class="tab-panel"></div>
+    </main>
+  </div>
+
+  <script src="pages/downloader.js"></script>
+  <script src="pages/translator.js"></script>
+  <script src="pages/settings.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
